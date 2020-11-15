@@ -1,7 +1,33 @@
+type User {
+  id: ID!
+  name: String!
+  lastname: String!
+  email: String!
+  password: String!
+  photo: String
+  # passwordResetToken: String
+  # passwordChangedAt: Date
+  # passwordResetExpires: Date
+}
+
 type Query {
-  bye: String
+  me: User
 }
 
 type Mutation {
-  signup(id: ID): Int!
+  signup(data: UserInput!): AuthPayload!
+  login(email: String, password: String): AuthPayload!
+}
+
+type AuthPayload {
+  user: User
+  token: String!
+}
+
+input UserInput {
+  name: String!
+  lastname: String!
+  email: String!
+  password: String!
+  photo: String
 }

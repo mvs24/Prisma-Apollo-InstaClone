@@ -1,5 +1,5 @@
+import { User } from "./User";
+
 export const Query = {
-  bye() {
-    return "hq";
-  },
+  ...User,
 };

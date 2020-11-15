@@ -2,6 +2,9 @@ import fs from "fs";
 import { PrismaClient } from "@prisma/client";
 import { ApolloServer, gql } from "apollo-server";
 import { resolvers } from "./apolloServer/resolvers/resolvers";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const prisma = new PrismaClient();
 
@@ -12,7 +15,7 @@ const server = new ApolloServer({
   resolvers,
   context: (request) => {
     return {
-      req: request,
+      req: request.req,
       prisma,
     };
   },

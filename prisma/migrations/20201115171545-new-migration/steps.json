@@ -80,6 +80,13 @@
     {
       "tag": "CreateField",
       "model": "User",
+      "field": "lastname",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
       "field": "email",
       "type": "String",
       "arity": "Required"
@@ -94,6 +101,20 @@
         },
         "directive": "unique"
       }
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "password",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "photo",
+      "type": "String",
+      "arity": "Required"
     }
   ]
 }
