@@ -1,8 +1,8 @@
 import fs from "fs";
 import { PrismaClient } from "@prisma/client";
 import { ApolloServer, gql } from "apollo-server";
-import { resolvers } from "./apolloServer/resolvers/resolvers";
 import dotenv from "dotenv";
+import { resolvers } from "./apolloServer/resolvers/resolvers";
 
 dotenv.config();
 

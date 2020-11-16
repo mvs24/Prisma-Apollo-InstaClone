@@ -1,3 +1,5 @@
+scalar Date
+
 type User {
   id: ID!
   name: String!
@@ -5,9 +7,44 @@ type User {
   email: String!
   password: String!
   photo: String
-  # passwordResetToken: String
-  # passwordChangedAt: Date
-  # passwordResetExpires: Date
+  passwordResetToken: String
+  passwordChangedAt: Date
+  passwordResetExpires: Date
+}
+
+type Post {
+  id: ID!
+  user: User!
+  likes: [PostLike!]!
+  comments: [Comment!]!
+  content: String
+}
+
+type PostLike {
+  id: ID!
+  user: User!
+  post: Post!
+}
+
+type Comment {
+  id: ID!
+  user: User
+  post: Post!
+  content: String
+  replies: [Reply!]!
+}
+
+type CommentLike {
+  id: ID!
+  user: User!
+  comment: Comment!
+}
+
+type Reply {
+  id: ID!
+  user: User!
+  content: String!
+  comment: Comment!
 }
 
 type Query {
@@ -16,7 +53,14 @@ type Query {
 
 type Mutation {
   signup(data: UserInput!): AuthPayload!
-  login(email: String, password: String): AuthPayload!
+  login(email: String!, password: String!): AuthPayload!
+  forgotPassword(email: String!): Success!
+  resetPassword(password: String!, resetToken: String!): AuthPayload!
+  createPost(content: String!): Post!
+}
+
+type Success {
+  message: String!
 }
 
 type AuthPayload {
