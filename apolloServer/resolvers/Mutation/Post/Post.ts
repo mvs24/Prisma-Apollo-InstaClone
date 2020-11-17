@@ -26,4 +26,31 @@ export const Post = {
       },
     });
   },
+  async deletePost(
+    _parent: undefined,
+    { postId }: { postId: string },
+    { req, prisma }: Context
+  ) {
+    const user = await getUser(req, prisma);
+
+    const post = await prisma.post.findMany({
+      where: {
+        user: {
+          id: +user!.id,
+        },
+        id: +postId,
+      },
+    });
+
+    if (!post) {
+      throw new Error("You are not allowed to delete this post!");
+    }
+
+    //CASCDE & SET NULL need to be added to db manually
+    return prisma.post.delete({
+      where: {
+        id: +postId,
+      },
+    });
+  },
 };

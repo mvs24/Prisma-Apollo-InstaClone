@@ -85,9 +85,9 @@ migration 20201116173402-newonee..20201116190937-po
    id Int @default(autoincrement()) @id
    name String
 -  lastname String
-+  lastname String 
++  lastname String
    email String @unique
-   password String 
+   password String
    photo String?
    passwordResetToken String?
    passwordChangedAt DateTime?
@@ -140,8 +140,6 @@ migration 20201116173402-newonee..20201116190937-po
 +  userId Int
 +  content String
 +  comment Comment @relation(fields: [commentId], references: [id])
-+  commentId Int 
++  commentId Int
 +}
 ```
-
-

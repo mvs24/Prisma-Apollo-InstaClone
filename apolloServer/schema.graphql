@@ -4,12 +4,23 @@ type User {
   id: ID!
   name: String!
   lastname: String!
-  email: String!
-  password: String!
+  email: String
+  password: String
   photo: String
   passwordResetToken: String
   passwordChangedAt: Date
   passwordResetExpires: Date
+  role: ROLE!
+  postLikes: [PostLike!]
+  comments: [Comment!]
+  posts: [Post!]
+  replies: [Reply!]
+  commentLikes: [CommentLike!]
+}
+
+enum ROLE {
+  ADMIN
+  USER
 }
 
 type Post {
@@ -49,6 +60,7 @@ type Reply {
 
 type Query {
   me: User
+  getUsers(query: String): [User!]!
 }
 
 type Mutation {
@@ -57,6 +69,10 @@ type Mutation {
   forgotPassword(email: String!): Success!
   resetPassword(password: String!, resetToken: String!): AuthPayload!
   createPost(content: String!): Post!
+  createComment(content: String!, postId: String!): Comment!
+  likePost(postId: String!): PostLike!
+  deletePost(postId: String!): Post
+  createReply(content: String!, commentId: String!): Reply!
 }
 
 type Success {

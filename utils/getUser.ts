@@ -32,6 +32,12 @@ export const getUser = async (
       where: {
         id: parseInt(decoded.id, 10),
       },
+      include: {
+        postLikes: true,
+        posts: true,
+        comments: true,
+        commentLikes: true,
+      },
     });
 
     if (!user) {
