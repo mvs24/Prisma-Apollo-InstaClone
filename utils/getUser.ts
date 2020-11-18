@@ -6,7 +6,7 @@ export const getUser = async (
   req: Request,
   prisma: PrismaClient,
   requireAuth: Boolean = true
-): Promise<null | User> => {
+) => {
   try {
     if (!requireAuth) return null;
     let token;

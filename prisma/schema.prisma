@@ -23,7 +23,10 @@ model User {
   replies Reply[]
   postLikes PostLike[]
   commentLikes CommentLike[]
+  following String[]
 }
+
+// Following (PENDING, ACCEPTED, IGNORED...)
 
 model Post {
   id Int @default(autoincrement()) @id

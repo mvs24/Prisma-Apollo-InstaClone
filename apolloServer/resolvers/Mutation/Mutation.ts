@@ -1,4 +1,5 @@
 import { Comment } from "./Comment/Comment";
+import { Following } from "./Following/Following";
 import { Post } from "./Post/Post";
 import { PostLike } from "./PostLike/PostLike";
 import { Reply } from "./Reply/Reply";
@@ -10,4 +11,5 @@ export const Mutation = {
   ...Comment,
   ...PostLike,
   ...Reply,
+  ...Following,
 };
