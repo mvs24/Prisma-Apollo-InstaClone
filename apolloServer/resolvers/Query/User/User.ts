@@ -4,7 +4,11 @@ import { Context } from "../../Mutation/User/types";
 
 export const User = {
   me(_parent: undefined, _args: undefined, { req, prisma }: Context) {
-    return getUser(req, prisma);
+    return prisma.user.findOne({
+      where: {
+        id: 20,
+      },
+    });
   },
   async getUsers(
     _parent: undefined,

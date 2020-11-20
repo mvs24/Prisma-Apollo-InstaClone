@@ -17,6 +17,7 @@ type User {
   replies: [Reply!]
   commentLikes: [CommentLike!]
   following: [String!]!
+  followingRequests: [String!]!
 }
 
 enum ROLE {
@@ -76,6 +77,7 @@ type Mutation {
   likePost(postId: String!): PostLike!
   deletePost(postId: String!): Post
   createReply(content: String!, commentId: String!): Reply!
+  requestFollowing(userId: String!): User!
   addFollowing(userId: String!): User!
 }
 

@@ -24,6 +24,7 @@ model User {
   postLikes PostLike[]
   commentLikes CommentLike[]
   following String[]
+  followingRequests String[]
 }
 
 // Following (PENDING, ACCEPTED, IGNORED...)
