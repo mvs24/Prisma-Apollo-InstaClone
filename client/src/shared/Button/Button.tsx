@@ -13,12 +13,14 @@ interface Props {
   title: string;
   color?: string;
   backgroundColor?: string;
-  state: ButtonState;
+  state?: ButtonState;
 }
 
 const Button = (props: Props) => {
   const { title, color, backgroundColor, state } = props;
-  const classNames = [classes.btn, classes[state]];
+  const classNames = [classes.btn];
+  if (state) classNames.push(classes[state]);
+  else classNames.push(classes["pink"]);
 
   return (
     <button style={{ color, backgroundColor }} className={classNames.join(" ")}>

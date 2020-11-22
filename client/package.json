@@ -12,6 +12,7 @@
     "@types/react": "^16.14.0",
     "@types/react-dom": "^16.9.9",
     "@types/react-router-dom": "^5.1.6",
+    "apollo": "^2.31.1",
     "graphql": "^15.4.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -24,7 +25,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "apollo:download": "apollo schema:download --endpoint=http://localhost:4000 graphql-schema.json",
+    "apollo:generate": "apollo codegen:generate --excludes=node_modules/* --includes=**/*.tsx --localSchemaFile=graphql-schema.json --target typescript --tagName gql --outputFlat src/generated --passthroughCustomScalars"
+
   },
   "eslintConfig": {
     "extends": [

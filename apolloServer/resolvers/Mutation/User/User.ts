@@ -44,7 +44,10 @@ const hashToken = (token: string): string => {
 
 export const User = {
   async signup(_parent: undefined, args: Signup["args"], { prisma }: Context) {
-    const { password, email } = args.data;
+    const { password, email, name, lastname } = args.data;
+    if (!name || !lastname) {
+      throw new Error("Please provide a valid name and lastname!");
+    }
     validateEmailAndPassword(email, password);
 
     const hashedPassword = await bcrypt.hash(password, 10);

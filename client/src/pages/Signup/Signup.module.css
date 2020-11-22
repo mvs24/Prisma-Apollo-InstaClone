@@ -1,0 +1,18 @@
+.signupContainer {
+  background: #fff;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  border-radius: 1px;
+  border: 2px solid #eee;
+  width: 50%;
+  margin: 10rem auto;
+  padding: 4rem;
+  text-align: center;
+}
+.inputContainer {
+  padding: 0.3rem;
+}
+.heading2 {
+  font-size: 1.8rem;
+  font-weight: 100;
+  margin-bottom: 1rem;
+}
